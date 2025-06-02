@@ -20,7 +20,12 @@
     <link href="css/reset.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="fade-in">
+
+    <header class="header">
+        <p>お問い合わせはこちら：</p>
+        <a href="tel:072-621-7227">072-621-7227</a>
+    </header>
 
     <div class="top_ga">
         <img class="pc" src="images/20250515_12372x.png" alt="top">
@@ -35,7 +40,7 @@
     </div>
 
     <div class="area1">
-        <div class="inner">
+        <div class="inner fade-up">
             <p class="midasi">こんなお悩みありませんか？</p>
             <div class="box">
                 <p>❶お風呂が寒くて快適に入れない</p>
@@ -57,7 +62,7 @@
             <div class="triangle"></div>
         </div>
 
-        <div class="inner">
+        <div class="inner fade-up">
 
             <img class="midasi_img" src="images/20250515_12422x.png" alt="">
 
@@ -119,7 +124,7 @@
         <div class="triangle_box2">
             <div class="triangle"></div>
         </div>
-        <div class="inner">
+        <div class="inner fade-up">
             <img class="midasi_img" src="images/20250515_12432x.png" alt="">
             <img src="images/20250515_12542x.png" alt="">
         </div>
@@ -132,7 +137,7 @@
 
             <div class="box">
 
-                <div class="list_box">
+                <div class="list_box fade-up">
 
                     <div class="list">
                         <div class="title">
@@ -148,7 +153,7 @@
 
                 </div>
 
-                <div class="list_box2">
+                <div class="list_box2 fade-up">
 
                     <div class="list">
                         <div class="title">
@@ -164,7 +169,7 @@
 
                 </div>
 
-                <div class="list_box">
+                <div class="list_box fade-up">
 
                     <div class="list">
                         <div class="title">
@@ -180,7 +185,7 @@
 
                 </div>
 
-                <div class="list_box2">
+                <div class="list_box2 fade-up">
 
                     <div class="list">
                         <div class="title">
@@ -196,7 +201,7 @@
 
                 </div>
 
-                <div class="list_box">
+                <div class="list_box fade-up">
 
                     <div class="list">
                         <div class="title">
@@ -230,7 +235,7 @@
             <div class="triangle"></div>
         </div>
         
-        <div class="inner">
+        <div class="inner fade-up">
 
             <p class="midasi">施工例</p>
 
@@ -253,7 +258,7 @@
             <div class="triangle"></div>
         </div>
 
-        <div class="inner">
+        <div class="inner fade-up">
 
             <p class="midasi">工事までの流れ</p>
 
@@ -343,7 +348,7 @@
             <div class="triangle"></div>
         </div>
 
-        <div class="inner">
+        <div class="inner fade-up">
 
             <p class="midasi">よくある質問</p>
 
@@ -400,7 +405,7 @@
             <div class="triangle"></div>
         </div>
 
-        <div class="inner">
+        <div class="inner fade-up">
             <a href="https://lin.ee/igBnsf9">
                 <img src="images/20250515_12382x.png" alt="">
             </a>
@@ -410,7 +415,7 @@
     <div class="area9">
         <div class="inner">
             <div class="l">
-                <img src="images/20250515_13082x.png" alt="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13102.33179535647!2d135.53575558715823!3d34.81643290000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000fcd2c734481b%3A0xdf85ba7727be51d9!2z5L2P44G-44GE44Gu5qOu!5e0!3m2!1sja!2sjp!4v1748832832791!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="r">
                 <p class="text">
@@ -440,5 +445,25 @@
 
 
 </body>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeUps = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // 一度だけ発火
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    fadeUps.forEach(el => observer.observe(el));
+  });
+</script>
 
 </html>
